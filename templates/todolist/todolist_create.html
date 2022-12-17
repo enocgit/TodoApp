@@ -1,0 +1,29 @@
+{% extends 'todolist/base.html' %}
+
+{% block content %}
+<section class="mt-5 position-relative">
+
+    <a href="{% url 'todolist:list-todolist' %}" class="back-btn text-light">
+        <span class="bi-caret-left" style="font-size: 2.5rem"></span>
+    </a>
+    <form method="post" class="row">{% csrf_token %}
+        <div class="col-4">
+            <input type="submit" class="btn text-light fw-bold cl-btn" value="Create list"></input>
+        </div>
+        <div class="col-6">
+            <input type="text" name="name" id="" placeholder="Todo list" class="form-control me-4">
+        </div>
+        <div class="col-2">
+            <input type="color" name="icon_color" value="#d848d6" id="" class=" color-picker">
+            <p class="small">pick color</p>
+        </div>
+    </form>
+    <section class="row row-cols-2 mt-5" id="todolist-set">
+        {% for todolist in todolists %}    
+            <a href="{% url 'todolist:detail-todolist' todolist.id %}" class="text-decoration-none col">
+                <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: {{ todolist.icon_color }}; margin-inline-end: 1rem"></span>{{ todolist.name }}</h4>
+            </a>
+        {% endfor %}
+    </section>
+</section>
+{% endblock %}

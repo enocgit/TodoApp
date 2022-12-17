@@ -1,0 +1,8 @@
+{% extends 'todolist/base.html' %}
+
+{% block content %}
+    <form method="post">{% csrf_token%}
+        <p class="lead">Are you want to delete '{{ todoitem.task }}'?</p>
+        <input type="submit" value="Confirm" class="btn cl-btn">
+    </form>
+{% endblock %}
