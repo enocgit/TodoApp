@@ -7,8 +7,12 @@
     <a href="{% url 'todolist:list-todolist' %}" class="back-btn text-light">
         <span class="bi-caret-left" style="font-size: 2.5rem"></span>
     </a>
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Edit" class="btn cl-btn">
+    <form method="post" class="row">{% csrf_token %}
+        <div class="col-8">
+            {{ form.as_p }}
+        </div>
+        <div class="col-4">
+            <input type="submit" value="Edit" class="btn cl-btn text-light">
+        </div>
     </form>
 {% endblock %}

@@ -7,13 +7,17 @@
         <span class="bi-caret-left" style="font-size: 2.5rem"></span>
     </a>
     <form method="post" class="row">{% csrf_token %}
+        <!-- <div class="col-4">
+        </div>
+        <div class="col-8">
+            <input type="text" name="task" id="" placeholder="Task" class="form-control me-4">
+        </div> -->
         <div class="col-4">
             <input type="submit" class="btn text-light fw-bold cl-btn" value="Create todo"></input>
         </div>
         <div class="col-8">
-            <input type="text" name="task" id="" placeholder="Task" class="form-control me-4">
+            {{ form.as_p }}
         </div>
-        <!-- {{ form.as_p }} -->
     </form>
 </section>
 {% endblock %}

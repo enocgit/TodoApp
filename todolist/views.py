@@ -12,12 +12,16 @@ class ListTodoList(ListView):
     model = TodoList
     template_name = 'todolist/todolist_list.html'
     context_object_name = 'todolists'
+    
+    
     # http_method_names = []
     
 class DetailTodoList(DetailView):
     model = TodoList
     template_name = 'todolist/todolist_detail.html'
     context_object_name = 'todolist'
+    
+    
     
 class CreateTodoList(CreateView):
     model = TodoList

@@ -18,37 +18,48 @@
             <span class="bi-compass-fill" style="font-size: 2rem; margin-inline-end: 1rem;"></span><span class="lead fw-bold">{{ todolist.name }}</span>
         </div>
         <section class="d-flex flex-column mt-5" id="todoitems">
-            {% for todoitem in todolist.todoitem_set.all %}    
-                <span class="todoitem">
-                    <input type="checkbox" {% if todoitem.completed %} checked {% endif %} class="p-4" style="margin-inline-end: 1rem;">
-                    <h4 class="h4 d-inline fs-5" style="color: #860ce6;">{{ todoitem.task }}</h4>
-                    <a href="{% url 'todoitems:update-todoitem' todoitem.id %}">
-                        <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
-                    </a>
-                    <a href="{% url 'todoitems:delete-todoitem' todoitem.id %}">
-                        <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
-                    </a>
-                </span>
-            {% endfor %}
-            <!-- <span class="todoitem">
-                <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Todo action 1
-                <h4 class="h4 d-inline"></h4>
-                <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
-                <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
-            </span>
-            <span class="todoitem">
-                <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Todo action 1
-                <h4 class="h4 d-inline"></h4>
-                <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
-                <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
-            </span>
-            <span class="todoitem">
-                <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Go to the farm
-                <h4 class="h4 d-inline"></h4>
-                <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
-                <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
-            </span> -->
-
+            {% if not todolist.todoitem_set.all %}
+                <p class="lead">No todo items yet</p>
+            {% else %}    
+                {% for todoitem in todolist.todoitem_set.all %}    
+                    <span class="todoitem">
+                        <input type="checkbox" {% if todoitem.completed %} checked {% endif %} class="p-4" style="margin-inline-end: 1rem;">
+                        <h4 class="h4 d-inline fs-5" style="color: #860ce6;">{{ todoitem.task }}</h4>
+                        <a href="{% url 'todoitems:update-todoitem' todoitem.id %}">
+                            <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
+                        </a>
+                        <a href="{% url 'todoitems:delete-todoitem' todoitem.id %}">
+                            <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
+                        </a>
+                    </span>
+                {% endfor %}
+            {% endif %}
         </section>
     </section>
 {% endblock %}
+
+
+
+
+
+
+
+
+        <!-- <span class="todoitem">
+            <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Todo action 1
+            <h4 class="h4 d-inline"></h4>
+            <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
+            <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
+        </span>
+        <span class="todoitem">
+            <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Todo action 1
+            <h4 class="h4 d-inline"></h4>
+            <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
+            <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
+        </span>
+        <span class="todoitem">
+            <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Go to the farm
+            <h4 class="h4 d-inline"></h4>
+            <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
+            <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
+        </span> -->
