@@ -9,7 +9,7 @@
         </a>
         <section class="container d-flex justify-space-around" id="">
             <a href="{% url 'todoitems:create-todoitem' %}">
-                <button class="btn text-light fw-bold ci-btn">Create todo</button>
+                <button class="btn text-light fw-bold ci-btn">Add task</button>
             </a>
             <!-- <input type="text" name="" id="" class="form-control ms-5"> -->
         </section>
@@ -21,45 +21,27 @@
             {% if not todolist.todoitem_set.all %}
                 <p class="lead">No todo items yet</p>
             {% else %}    
-                {% for todoitem in todolist.todoitem_set.all %}    
-                    <span class="todoitem">
-                        <input type="checkbox" {% if todoitem.completed %} checked {% endif %} class="p-4" style="margin-inline-end: 1rem;">
+            {% for todoitem in todolist.todoitem_set.all %}
+                <div class="todoitem row">
+                    <div class="col-1">
+                        <input type="checkbox" name="checkbox" {% if todoitem.completed %} checked {% endif %} class="p-4" style="margin-inline-end: 1rem;">
+                    </div>
+                    <div class="col-8">
                         <h4 class="h4 d-inline fs-5" style="color: #860ce6;">{{ todoitem.task }}</h4>
-                        <a href="{% url 'todoitems:update-todoitem' todoitem.id %}">
-                            <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
-                        </a>
+                    </div>
+                    <div class="col-1">
                         <a href="{% url 'todoitems:delete-todoitem' todoitem.id %}">
-                            <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
+                            <span class="bi-x-circle  cancel-btn" style="color: #d81240;"></span>
                         </a>
-                    </span>
+                    </div>
+                    <div class="col-1">
+                        <a href="{% url 'todoitems:update-todoitem' todoitem.id %}">
+                            <button class="btn btn-success edit-btn">Edit</button>
+                        </a>
+                    </div>
+                </div>
                 {% endfor %}
             {% endif %}
         </section>
     </section>
 {% endblock %}
-
-
-
-
-
-
-
-
-        <!-- <span class="todoitem">
-            <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Todo action 1
-            <h4 class="h4 d-inline"></h4>
-            <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
-            <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
-        </span>
-        <span class="todoitem">
-            <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Todo action 1
-            <h4 class="h4 d-inline"></h4>
-            <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
-            <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
-        </span>
-        <span class="todoitem">
-            <input type="checkbox" class="p-4" style="margin-inline-end: 1rem">Go to the farm
-            <h4 class="h4 d-inline"></h4>
-            <button class="btn btn-success float-end edit-btn ms-4">Edit</button>
-            <span class="bi-x-circle float-end cancel-btn" style="color: #d81240;"></span>
-        </span> -->

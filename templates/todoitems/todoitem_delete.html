@@ -1,8 +1,13 @@
 {% extends 'todolist/base.html' %}
 
 {% block content %}
-    <form method="post">{% csrf_token%}
-        <p class="lead">Are you want to delete '{{ todoitem.task }}'?</p>
-        <input type="submit" value="Confirm" class="btn cl-btn">
-    </form>
+    <section class="mt-5 position-relative">
+            <a href="{% url 'todolist:detail-todolist' todoitem.todolist.id %}" class="back-btn text-light">
+                <span class="bi-caret-left" style="font-size: 2.5rem;"></span>
+            </a>
+            <form method="post">{% csrf_token%}
+                <p class="lead">Delete '{{ todoitem.task }}'?</p>
+                <input type="submit" value="Confirm" class="btn cl-btn text-light">
+            </form>
+    </section>
 {% endblock %}

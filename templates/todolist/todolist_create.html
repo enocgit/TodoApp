@@ -18,12 +18,12 @@
             <p class="small">pick color</p>
         </div>
     </form>
-    <section class="row row-cols-2 mt-5" id="todolist-set">
+    <!-- <section class="row row-cols-2 mt-5 todolist-set" id="">
         {% for todolist in todolists %}    
             <a href="{% url 'todolist:detail-todolist' todolist.id %}" class="text-decoration-none col">
                 <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: {{ todolist.icon_color }}; margin-inline-end: 1rem"></span>{{ todolist.name }}</h4>
             </a>
         {% endfor %}
-    </section>
+    </section> -->
 </section>
 {% endblock %}

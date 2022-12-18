@@ -3,43 +3,17 @@
 {% block content %}
     <section class="row">
         <a href="{% url 'todolist:create-todolist' %}" class="col">
-            <button class="btn text-light fw-bold cl-btn">Create list</button>
+            <button class="btn text-light fw-bold cl-btn">Create group</button>
         </a>
         <!-- <input type="text" name="" id="" placeholder="Todo list" class="col form-control me-4"> -->
     </section>
-    <section class="row row-cols-2 mt-5" id="todolist-set">
+    <section class="row row-cols-2 mt-5 todolist-set" id="">
         {% for todolist in todolists %}    
             <a href="{% url 'todolist:detail-todolist' todolist.id %}" class="text-decoration-none col">
                 <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: {{ todolist.icon_color }}; margin-inline-end: 1rem"></span>{{ todolist.name }}</h4>
             </a>
         {% endfor %}
-        <!-- <a href="" class="text-decoration-none col">
-            <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: #56ef76; margin-inline-end: 1rem"></span>Work</h4>
-        </a>
-        <a href="" class="text-decoration-none col">
-            <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: #ef922d; margin-inline-end: 1rem"></span>Education</h4>
-        </a>
-        <a href="" class="text-decoration-none">
-            <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: #d848d6; margin-inline-end: 1rem"></span>Sport</h4>
-        </a>
-        <a href="" class="text-decoration-none">
-            <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: #d81240; margin-inline-end: 1rem"></span>Work</h4>
-        </a>
-        <a href="" class="text-decoration-none">
-            <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: #d848d6; margin-inline-end: 1rem"></span>Education</h4>
-        </a> -->
+        
     </section>
-    <!-- 
-    <div class="container d-flex justify-space-around" ">
-        <section class="" id="left">
-            
-            <section class="mt-4 me-2" id="todolist">
-            </section>
-        </section>
-        <section class="" id="right">
-            <input type="text" name="" id="" placeholder="Todo list" class="form-control">
-            <section class="mt-4 ms-2" id="todolist" style="">
-            </section>
-        </section>
-    </div> -->
+    
 {% endblock %}

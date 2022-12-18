@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class TodoList(models.Model):
@@ -8,3 +9,6 @@ class TodoList(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('detail-todolist', kwargs={'pk', self.pk})

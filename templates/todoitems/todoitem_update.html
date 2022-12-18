@@ -1,0 +1,18 @@
+{% extends 'todolist/base.html' %}
+
+{% block content %}
+<section class="mt-5 position-relative">
+
+    <a href="{% url 'todolist:detail-todolist' todoitem.todolist.id %}" class="back-btn text-light">
+        <span class="bi-caret-left" style="font-size: 2.5rem;"></span>
+    </a>
+    <form method="post" class="row">{% csrf_token %}
+        <div class="col-8">
+            {{ form.as_p }}
+        </div>
+        <div class="col-4">
+            <input type="submit" value="Edit" class="btn cl-btn text-light fw-bold">
+        </div>
+    </form>
+</section>
+{% endblock %}

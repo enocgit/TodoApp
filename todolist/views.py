@@ -21,14 +21,16 @@ class DetailTodoList(DetailView):
     template_name = 'todolist/todolist_detail.html'
     context_object_name = 'todolist'
     
-    
-    
 class CreateTodoList(CreateView):
     model = TodoList
     template_name = 'todolist/todolist_create.html'
     fields = ['name', 'icon_color']
     success_url = reverse_lazy('todolist:list-todolist')
 
+class DeleteTodoList(DeleteView):
+    model = TodoList
+    context_object_name = 'todolist'
+    success_url = reverse_lazy('todolist:list-todolist')
     
 # class UpdateTodoList(UpdateView):
 #     model = TodoItem
