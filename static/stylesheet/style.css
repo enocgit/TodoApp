@@ -52,6 +52,15 @@ main {
 #todoitems {
     padding-inline: 1.5rem;
 }
+.tl-del-btn {
+    font-size: 0.45rem !important;
+    float: right;
+    font-weight: bold;
+    visibility: hidden;
+    background-color: #ccc;
+    border: none;
+    /* transition: all 0.5s ease-in-out; */
+}
 .todoitem {
     font-size: 1.3rem;
     border: 1px solid #ccc;
@@ -69,6 +78,13 @@ main {
     font-size: 1.3rem;
     border: 1px solid #ccc;
     padding: 0.5rem;
+    width: 16rem;
+    /* margin-inline: 1rem !important; */
+    transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.todolist:hover {
+    transform: scale(1.05);
+    transition: 0.5s all  cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 /* #todolist h4:nth-of-type(2) {
     font-size: 1.3rem;

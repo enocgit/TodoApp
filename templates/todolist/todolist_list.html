@@ -7,13 +7,43 @@
         </a>
         <!-- <input type="text" name="" id="" placeholder="Todo list" class="col form-control me-4"> -->
     </section>
-    <section class="row row-cols-2 mt-5 todolist-set" id="">
+    <section class="row row-cols-2 mt-5 todolist-set gap-2 gx-2" id="">
         {% for todolist in todolists %}    
-            <a href="{% url 'todolist:detail-todolist' todolist.id %}" class="text-decoration-none col">
-                <h4 class="h4 todolist fs-5"><span class="bi-compass-fill" style="color: {{ todolist.icon_color }}; margin-inline-end: 1rem"></span>{{ todolist.name }}</h4>
-            </a>
+            <!-- <a href="{% url 'todolist:detail-todolist' todolist.id %}" class="text-decoration-none col">
+                <h4 class="h4 todolist fs-5">
+                    <span class="bi-compass-fill" style="color: {{ todolist.icon_color }}; margin-inline-end: 1rem"></span>
+                    {{ todolist.name }}
+                    <span class="btn btn-danger tl-del-btn">Delete</span>
+                </h4>
+            </a> -->
+            <div class="todolist col-5">
+                <a href="{% url 'todolist:detail-todolist' todolist.id %}" class="text-decoration-none">
+                    <span class="">
+                        <i class="bi-compass-fill" style="color: {{ todolist.icon_color }}; margin-inline-end: 1rem"></i>
+                        {{ todolist.name }}
+                        <a href="">
+                            <button class="btn btn-danger tl-del-btn">Delete</button>
+                        </a>
+                    </span>
+                </a>
+            </div>
         {% endfor %}
         
     </section>
     
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.todolist').mouseover((e) => {
+                $('.tl-del-btn', e.target).css({
+                    'visibility': 'visible',
+                })
+            })
+            $('.todolist').mouseleave((e) => {
+                $('.tl-del-btn', e.currentTarget).css({
+                    'visibility': 'hidden'
+                })
+            })
+
+        })
+    </script>
 {% endblock %}
