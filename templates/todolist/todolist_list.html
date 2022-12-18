@@ -21,7 +21,7 @@
                     <span class="">
                         <i class="bi-compass-fill" style="color: {{ todolist.icon_color }}; margin-inline-end: 1rem"></i>
                         {{ todolist.name }}
-                        <a href="">
+                        <a href="{% url 'todolist:delete-todolist' todolist.id %}">
                             <button class="btn btn-danger tl-del-btn">Delete</button>
                         </a>
                     </span>

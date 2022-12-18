@@ -13,7 +13,7 @@ class TodoItemForm(forms.ModelForm):
         }
         widgets = {
             'task': forms.TextInput(attrs={'class': 'form-control' }),
-            'todolist': forms.Select(attrs={'class': 'form-control'})
+            'todolist': forms.Select(attrs={'class': 'form-control'}),
         }
         
         

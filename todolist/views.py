@@ -29,6 +29,7 @@ class CreateTodoList(CreateView):
 
 class DeleteTodoList(DeleteView):
     model = TodoList
+    template_name = 'todolist/todolist_delete.html'
     context_object_name = 'todolist'
     success_url = reverse_lazy('todolist:list-todolist')
     
