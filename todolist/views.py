@@ -27,7 +27,16 @@ class CreateTodoList(CreateView):
     fields = ['name', 'icon_color']
     success_url = reverse_lazy('todolist:list-todolist')
     
-    
+    # def dispatch(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated:
+    #         name = request.POST.get('todolist_todolist.name')
+    #         icon_color = request.POST.get('icon_color')
+    #         todolist = TodoList(name=name, icon_color=icon_color)
+    #         todolist.save()
+            
+    #         return super().dispatch(request, *args, **kwargs)
+    #     else:
+    #         pass
 
 class DeleteTodoList(DeleteView):
     model = TodoList
