@@ -5,7 +5,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from .models import TodoList
 from todoitems.models import TodoItem
-
+from django.contrib.auth.models import User
 
 # Create your views here.
 class ListTodoList(ListView):
@@ -26,13 +26,16 @@ class CreateTodoList(CreateView):
     template_name = 'todolist/todolist_create.html'
     fields = ['name', 'icon_color']
     success_url = reverse_lazy('todolist:list-todolist')
+    
+    
 
 class DeleteTodoList(DeleteView):
     model = TodoList
     template_name = 'todolist/todolist_delete.html'
     context_object_name = 'todolist'
     success_url = reverse_lazy('todolist:list-todolist')
-    
+
+
 # class UpdateTodoList(UpdateView):
 #     model = TodoItem
 #     template_name = 'todolist/todolist_update.html'

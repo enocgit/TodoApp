@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth import forms as auth_forms
+from django.contrib.auth.models import User
 from .models import TodoItem
 
 class TodoItemForm(forms.ModelForm):
@@ -27,5 +29,30 @@ class TodoItemUpdateForm(forms.ModelForm):
         widgets = {
             'task': forms.TextInput(attrs={'class': 'form-control'})
         }
+        
 
-# form = TodoItemForm()
+class LoginForm(auth_forms.AuthenticationForm):
+    # class Meta:
+    #     model = User
+    #     # fields = ['username', 'password']
+        
+    #     labels = {
+    #         'username': '',
+    #         'password': '',
+    #     }        
+    #     widgets = {
+    #         'username': forms.TextInput(attrs={'class': 'form-control'}),
+    #         'password': forms.TextInput(attrs={'class': 'form-control'}),
+    #     }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update(
+        {'class': 'form-control'}
+        )
+        self.fields['password'].widget.attrs.update(
+        {'class': 'form-control'}
+        )
+
+
+# form = LoginForm()

@@ -11,11 +11,24 @@
     <link rel="stylesheet" href="{% static 'stylesheet/style.css' %}">
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <title>Todo</title>
+    <title> {% block title %}Just do{% endblock %}</title>
 </head>
 <body>
     <div class="wrapper" id="">
         <header class="main-header">
+            {% if user.is_authenticated %}
+                <small class="small position-relative user"><span class="text-light">Hello</span>, {{ user.username }}</small>
+                <a href="{% url 'logout' %}" class="text-decoration-none text-light position-relative logout">
+                    <small class="small">Logout</small>
+                </a>        
+            {% else %}
+                <a href="{% url 'signup' %}" class="text-decoration-none text-light position-relative signup">
+                    <small class="small">Signup</small>
+                </a>        
+                <a href="{% url 'login' %}" class="text-decoration-none text-light position-relative login">
+                    <small class="small">Login</small>
+                </a>        
+            {% endif %}
             <h1 class="h1 text-light p-3 fw-bolder text-center m-0">Just do</h1>
         </header>
         <main class="mt-0 p-3">

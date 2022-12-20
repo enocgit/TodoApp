@@ -36,6 +36,13 @@
 #left, #right {
     width: 30vw;
 }
+.login, .logout {
+    top: 1rem;
+    left: 3rem;
+}
+/* .logout {
+    left: 23rem;
+} */
 input[type="checkbox"]{
     padding: 0.5rem;
 }
@@ -57,7 +64,7 @@ main {
     float: right;
     font-weight: bold;
     visibility: hidden;
-    background-color: #ccc;
+    background-color: #888;
     border: none;
     /* transition: all 0.5s ease-in-out; */
 }
@@ -106,6 +113,16 @@ main {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.signup, .user {
+    left: 2rem;
+    top: 1rem;
+}
+.user {
+    color: #66E20F;
+}
+.user:hover {
+    cursor: pointer;
 }
 .wrapper {
     width: 40vw;
