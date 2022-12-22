@@ -10,10 +10,14 @@
         <a href="{% url 'todolist:list-todolist' %}" class="back-btn text-light">
             <span class="bi-caret-left" style="font-size: 2.5rem"></span>
         </a>
+        <h2>Signup</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Signup">
+            <!-- {{ form.as_p }} -->
+            <input type="text" name="username" placeholder="username" class="form-control">
+            <input type="password" name="password1" id="" placeholder="password" class="form-control mt-3">
+            <input type="password" name="password2" id="" placeholder="password" class="form-control mt-3">
+            <input type="submit" value="Signup" class="form-control cl-btn text-light mt-3 ms-0">
         </form>
     </div>
 {% endblock %}

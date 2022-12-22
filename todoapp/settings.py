@@ -130,3 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'todolist:list-todolist'
 LOGOUT_REDIRECT_URL = 'todolist:list-todolist'
+LOGIN_URL = 'accounts:login'

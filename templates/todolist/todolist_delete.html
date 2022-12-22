@@ -7,7 +7,7 @@
         </a>
     </section>
     <form method="post">{% csrf_token %}
-        <p class="lead"><span style="color: red">Delete</span> <strong>'{{ todolist.name }}'</strong>?</p>
+        <p class="lead"><span style="color: red">Delete </span>group <strong>'{{ todolist.name }}'</strong>?</p>
         <input type="submit" value="Confirm" class="btn cl-btn text-light">
     </form>
 {% endblock %}

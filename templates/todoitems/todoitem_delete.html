@@ -6,7 +6,7 @@
                 <span class="bi-caret-left" style="font-size: 2.5rem;"></span>
             </a>
             <form method="post">{% csrf_token%}
-                <p class="lead"><span style="color: red">Delete</span> <strong>'{{ todoitem.task }}'</strong>?</p>
+                <p class="lead"><span style="color: red">Delete </span>task <strong>'{{ todoitem.task }}'</strong>?</p>
                 <input type="submit" value="Confirm" class="btn cl-btn text-light">
             </form>
     </section>

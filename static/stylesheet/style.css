@@ -76,6 +76,12 @@ main {
 .todoitem h4 {
     color: var(--primary-color);
 }
+.checked {
+    color: #888
+}
+.unchecked {
+    color: var(--primary-color);
+}
 /* #todolist h4 {
     font-size: 1.3rem;
     border: 1px solid #ccc;

@@ -17,15 +17,15 @@
     <div class="wrapper" id="">
         <header class="main-header">
             {% if user.is_authenticated %}
-                <small class="small position-relative user"><span class="text-light">Hello</span>, {{ user.username }}</small>
-                <a href="{% url 'logout' %}" class="text-decoration-none text-light position-relative logout">
+                <small class="small position-relative user"><span class="text-light">Hello</span>, {{ user.username|title }}</small>
+                <a href="{% url 'accounts:logout' %}" class="text-decoration-none text-light position-relative logout">
                     <small class="small">Logout</small>
                 </a>        
             {% else %}
-                <a href="{% url 'signup' %}" class="text-decoration-none text-light position-relative signup">
+                <a href="{% url 'accounts:signup' %}" class="text-decoration-none text-light position-relative signup">
                     <small class="small">Signup</small>
                 </a>        
-                <a href="{% url 'login' %}" class="text-decoration-none text-light position-relative login">
+                <a href="{% url 'accounts:login' %}" class="text-decoration-none text-light position-relative login">
                     <small class="small">Login</small>
                 </a>        
             {% endif %}

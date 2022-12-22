@@ -8,7 +8,7 @@
             <span class="bi-caret-left" style="font-size: 2.5rem"></span>
         </a>
         <section class="container d-flex justify-space-around" id="">
-            <a href="{% url 'todoitems:create-todoitem' %}">
+            <a href="{% url 'todolist:create-todoitem' todolist.id %}">
                 <button class="btn text-light fw-bold ci-btn">Add task</button>
             </a>
             <!-- <input type="text" name="" id="" class="form-control ms-5"> -->
@@ -19,7 +19,7 @@
         </div>
         <section class="d-flex flex-column mt-5" id="todoitems">
             {% if not todolist.todoitem_set.all %}
-                <p class="lead">No todo items yet</p>
+                <p class="lead">No tasks yet</p>
             {% else %}    
             {% for todoitem in todolist.todoitem_set.all %}
                 <div class="todoitem row">
@@ -44,4 +44,13 @@
             {% endif %}
         </section>
     </section>
+
+    <script>
+        $(document).ready(() => {
+            $('.todoitem input[type="checkbox"]').change(function() {
+                $('h4').toggleClass('checked')
+              });
+        })
+               
+    </script>
 {% endblock %}
